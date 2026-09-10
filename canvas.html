@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Canvas</title>
+  </head>
+  <body>
+    <!-- <canvas
+      id="mycanvas"
+      width="600"
+      height="600"
+      style="border: 1px solid black"
+    ></canvas>
+    <script>
+      let c = document.getElementById("mycanvas");
+      let ctx = c.getContext("2d");
+      //pravokutnik
+      ctx.beginPath();
+      ctx.rect(10, 10, 400, 400);
+      ctx.fillStyle = "yellow";
+      ctx.fill();
+
+      //krug
+      ctx.beginPath();
+      ctx.arc(200, 300, 100, 0, 2 * Math.PI);
+      ctx.stroke();
+
+      //linije (koje naprave trokut)
+      ctx.moveTo(100, 200);
+      ctx.lineTo(200, 300);
+      ctx.lineTo(50, 300);
+      ctx.lineTo(100, 200);
+      ctx.stroke();
+    </script> -->
+    <canvas id="kan" width="800" height="800" style="border: 1px solid black">
+    </canvas>
+    <script>
+      let c = document.getElementById("kan");
+      let ctx = c.getContext("2d");
+      ctx.beginPath();
+      ctx.rect(150, 150, 450, 300);
+      ctx.fillStyle = "blue";
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.rect(160, 290, 90, 160);
+      ctx.fillStyle = "white";
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.rect(340, 290, 160, 100);
+      ctx.fillStyle = "white";
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.moveTo(150, 150);
+      ctx.lineTo(375, 50);
+      ctx.lineTo(600, 150);
+      ctx.fillStyle = "red";
+      ctx.fill();
+      ctx.strokeStyle = "red";
+      ctx.stroke();
+    </script>
+  </body>
+</html>
