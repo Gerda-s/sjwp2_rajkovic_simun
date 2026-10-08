@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Skriptni jezici</title>
+
+    <link rel="stylesheet" href="./zad1.css" />
+  </head>
+  <body>
+    <div class="nav">
+      <a href="./zadaca1.html">Pocetna stranica </a>
+      <a href="./Kontakt.html">Kontakt </a>
+      <a href="./Onama.html">O nama</a>
+    </div>
+    <h1>HTML,CSS,Canvas i SVG</h1>
+    <p>
+      <em>Canvas</em> je HTML5 element koji, pomoću JavaScript-a, omogućava
+      dinamičko iscrtavanje različitih oblika, dodavanje slika, kreiranje
+      animacija na web stranici i sl.
+    </p>
+
+    <p>
+      Na platnu (canvas-u) to ne radimo korištenjem novog jezika (kao što je to
+      slučaj kod SVG) ili korištenjem Flasha. Najčešće uporabe platna su:
+    </p>
+
+    <ul>
+      <li>crtanje grafova,</li>
+      <li>animiranje, igre i</li>
+      <li>kompozicija slike.</li>
+    </ul>
+    <hr />
+    <p>
+      <strong>SVG</strong> <em>(Scalable Vector Graphics)</em> grafika ne gubi
+      kvalitetu prilikom zumiranja ili resize-a.
+    </p>
+    <p>
+      Svi crteži mogu biti interaktivni i dinamički. Svaki element i atribut SVG
+      datoteke može biti animiran. Animacije mogu biti definirane i pokrenute
+      interaktivno ili pomoću skripti.
+    </p>
+    <p>SVG integrira druge W3C standarde kao što su DOM, XSL …</p>
+    <hr />
+    <h3>Usporedba SVG-a i Canvasa</h3>
+    <table width="600" border="1">
+      <tr>
+        <th>SVG</th>
+        <th>HTML Canvas</th>
+      </tr>
+      <tr>
+        <td>
+          SVG ima bolju skalabilnost,tako da može imati bolje slike sa velikom
+          kvalitetom na bilo kojoj rezoluciji
+        </td>
+        <td>
+          Canvas ima lošu skalabilnost. Nije prikladan za rad s velikim
+          rezolucijama
+        </td>
+      </tr>
+      <tr>
+        <td>
+          SVG daje bolje performanse sa manjim brojem objekata ili većom
+          površinom
+        </td>
+        <td>
+          Canvas daje bolje performanse za rad s manjim površinama ili većim
+          brojem objekata
+        </td>
+      </tr>
+      <tr>
+        <td>SVG se može modificirati uz pomoć skripte i CSS-a</td>
+        <td>Canvas se može modificirati samo uz pomoć skripte</td>
+      </tr>
+      <tr>
+        <td>SVG je baziran na vektorima i sastavljen je od oblika.</td>
+        <td>Canvas je baziran na pikselima</td>
+      </tr>
+    </table>
+    <table width="800" border="1">
+      <tr>
+        <td><strong>Ime</strong></td>
+        <td>Marko</td>
+      </tr>
+      <tr>
+        <td rowspan="2"><strong>Telefon</strong></td>
+        <td>555-1234</td>
+      </tr>
+      <tr>
+        <td>555-8745</td>
+      </tr>
+    </table>
+    <img src="/slike/sdfg.png" alt="Slika zarulje" />
+    <h2>Primjer SVG-a i Canvasa</h2>
+    <svg width="600" height="700">
+      <rect x="150" y="50" width="300" height="50" fill="blue" />
+      <rect x="150" y="100" width="300" height="350" fill="#FFC3A0" />
+      <rect x="100" y="150" width="50" height="100" fill="yellow" />
+      <rect x="450" y="150" width="50" height="100" fill="yellow" />
+      <circle cx="230" cy="190" r="40" fill="white" />
+      <circle cx="380" cy="190" r="40" fill="white" />
+      <circle cx="380" cy="190" r="20" fill="blue" />
+      <circle cx="230" cy="190" r="20" fill="blue" />
+      <polygon points="310,215 250,280 350,280" fill="orange" />
+      <path d="M 50 100 A 50 50 0 0 1 150 100" fill="red" />
+      <polygon points="160,580 270,550 160,500" fill="blue" />
+      <polygon points="460,489 320,550 457,580" fill="blue" />
+      <circle cx="300" cy="550" r="40" fill="yellow" />
+    </svg>
+    <h1 class="form-title">Kontaktirajte Nas</h1>
+
+    <form action="" method="GET">
+      <!-- Ime i Email — prvi red -->
+      <div class="row g-3 mb-3">
+        <div class="col-md-6">
+          <label for="ime" class="form-label">Ime i prezime</label>
+          <input
+            type="text"
+            class="form-control"
+            id="ime"
+            name="ime"
+            placeholder="npr. Šimun Rajković"
+            required
+          />
+        </div>
+        <div class="col-md-6">
+          <label for="email" class="form-label">Email adresa</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            name="email"
+            placeholder="npr. simun@gmail.com"
+            required
+          />
+        </div>
+      </div>
+
+      <!-- Datum — drugi red -->
+      <div class="mb-3">
+        <label for="datum" class="form-label">Unesite datum</label>
+        <input type="date" class="form-control" id="datum" name="datum" />
+      </div>
+
+      <!-- Poruka — treći red -->
+      <div class="mb-4">
+        <label for="poruka" class="form-label">Poruka</label>
+        <textarea
+          class="form-control"
+          id="poruka"
+          name="poruka"
+          placeholder="Napišite svoju poruku ovdje"
+          required
+        ></textarea>
+      </div>
+
+      <!-- Gumb -->
+      <button type="submit" class="btn-posalji">
+        <a href="./forma.html">Posalji</a>
+      </button>
+      <button type="submit" class="btn-posalji">Reset</button>
+    </form>
+  </body>
+</html>

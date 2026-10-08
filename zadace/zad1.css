@@ -1,0 +1,43 @@
+* {
+  background-color: #c2f8f7;
+}
+h1 {
+  font-size: 2.5em;
+}
+p {
+  margin-left: 8px;
+  margin-right: 8px;
+  color: rgb(96 96 96);
+}
+img {
+  height: 220px;
+  width: 480px;
+}
+table {
+  border-collapse: collapse;
+}
+.nav {
+  overflow: hidden;
+}
+.nav a {
+  float: left;
+
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+.nav a:hover {
+  color: black;
+}
+.nav a:active {
+  color: white;
+  background-color: #ffcc47;
+}
+button {
+  color: #c2f8f7;
+  width: 100%;
+}
+div {
+  width: 100%;
+}
