@@ -9,7 +9,7 @@
   </head>
   <body>
     <div class="nav">
-      <a href="./zadaca1.html">Pocetna stranica </a>
+      <a href="./Pocetna.html">Pocetna stranica </a>
       <a href="./Kontakt.html">Kontakt </a>
       <a href="./Onama.html">O nama</a>
     </div>
@@ -79,37 +79,117 @@
     </table>
     <table width="800" border="1">
       <tr>
-        <td><strong>Ime</strong></td>
+        <td class="cl"><strong>Ime</strong></td>
         <td>Marko</td>
       </tr>
       <tr>
-        <td rowspan="2"><strong>Telefon</strong></td>
+        <td rowspan="2" class="cla"><strong>Telefon</strong></td>
         <td>555-1234</td>
       </tr>
       <tr>
         <td>555-8745</td>
       </tr>
     </table>
-    <img src="/slike/sdfg.png" alt="Slika zarulje" />
+    <img src="./sdfg.png" alt="Slika zarulje" />
     <h2>Primjer SVG-a i Canvasa</h2>
     <svg width="600" height="700">
+      
       <rect x="150" y="50" width="300" height="50" fill="blue" />
       <rect x="150" y="100" width="300" height="350" fill="#FFC3A0" />
       <rect x="100" y="150" width="50" height="100" fill="yellow" />
       <rect x="450" y="150" width="50" height="100" fill="yellow" />
+      <circle cx="300" cy="350" r="80" fill="red" />
+      <rect x="150" y="180" width="300" height="175" fill="#FFC3A0" />
       <circle cx="230" cy="190" r="40" fill="white" />
       <circle cx="380" cy="190" r="40" fill="white" />
       <circle cx="380" cy="190" r="20" fill="blue" />
       <circle cx="230" cy="190" r="20" fill="blue" />
-      <polygon points="310,215 250,280 350,280" fill="orange" />
-      <path d="M 50 100 A 50 50 0 0 1 150 100" fill="red" />
+      <polygon points="305,215 250,280 350,280" fill="orange" />
       <polygon points="160,580 270,550 160,500" fill="blue" />
-      <polygon points="460,489 320,550 457,580" fill="blue" />
+      <polygon points="440,490 330,550 440,580" fill="blue" />
       <circle cx="300" cy="550" r="40" fill="yellow" />
     </svg>
+    <canvas id="kan" width="600" height="700"></canvas>
+    <script>
+      let c = document.getElementById("kan");
+      let ctx = c.getContext("2d");
+
+      ctx.beginPath();
+      ctx.rect(150,50,300,50);
+      ctx.fillStyle = "blue";
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.rect(150,100,300,350);
+      ctx.fillStyle="#FFC3A0";
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.rect(100,150,50,100);
+      ctx.fillStyle="yellow";
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.rect(450,150,50,100);
+      ctx.fillStyle="yellow";
+      ctx.fill();
+
+      ctx.fillStyle = "red";
+      ctx.beginPath();
+      ctx.arc(300,350,80,0,2*Math.PI);
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.rect(150,180,300,175);
+      ctx.fillStyle="#FFC3A0";
+      ctx.fill();
+
+      ctx.fillStyle = "white";
+      ctx.beginPath();
+      ctx.arc(230, 190, 40, 0, 2 * Math.PI);
+      ctx.arc(380, 190, 40, 0, 2 * Math.PI);
+      ctx.fill();
+
+      ctx.fillStyle = "blue";
+      ctx.beginPath();
+      ctx.arc(380, 190, 20, 0, 2 * Math.PI);
+      ctx.arc(230, 190, 20, 0, 2 * Math.PI);
+      ctx.fill();
+
+      ctx.fillStyle = "orange";
+      ctx.beginPath();
+      ctx.moveTo(305, 215);
+      ctx.lineTo(250, 280);
+      ctx.lineTo(350, 280);
+      ctx.closePath();
+      ctx.fill();
+
+      ctx.fillStyle = "blue";
+      ctx.beginPath();
+      ctx.moveTo(160, 580);
+      ctx.lineTo(270, 550);
+      ctx.lineTo(160, 500);
+      ctx.closePath();
+      ctx.fill();
+
+      ctx.fillStyle = "blue";
+      ctx.beginPath();
+      ctx.moveTo(440, 490);
+      ctx.lineTo(330, 550);
+      ctx.lineTo(440, 580);
+      ctx.closePath();
+      ctx.fill();
+
+      ctx.fillStyle = "yellow";
+      ctx.beginPath();
+      ctx.arc(300, 550, 40, 0, Math.PI * 2);
+      ctx.fill();
+
+
+    </script>
     <h1 class="form-title">Kontaktirajte Nas</h1>
 
-    <form action="" method="GET">
+    <form action="./forma.html" method="GET">
       <!-- Ime i Email — prvi red -->
       <div class="row g-3 mb-3">
         <div class="col-md-6">
@@ -120,7 +200,6 @@
             id="ime"
             name="ime"
             placeholder="npr. Šimun Rajković"
-            required
           />
         </div>
         <div class="col-md-6">
@@ -131,7 +210,6 @@
             id="email"
             name="email"
             placeholder="npr. simun@gmail.com"
-            required
           />
         </div>
       </div>
@@ -150,15 +228,12 @@
           id="poruka"
           name="poruka"
           placeholder="Napišite svoju poruku ovdje"
-          required
         ></textarea>
       </div>
 
       <!-- Gumb -->
-      <button type="submit" class="btn-posalji">
-        <a href="./forma.html">Posalji</a>
-      </button>
-      <button type="submit" class="btn-posalji">Reset</button>
+      <button type="submit" class="btn-posalji">Posalji</button>
+      <button >Reset</button>
     </form>
   </body>
 </html>
