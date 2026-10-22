@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>Upozorenje</p>
+    <button>button</button>
+    <script>
+      let upoz = document.querySelector("p");
+      let gumb = document.querySelector("button");
+      gumb.onclick = function () {
+        upoz.style.fontSize = "50px";
+        upoz.style.backgroundColor = "yellow";
+        upoz.style.color = "red";
+        upoz.innerHTML = "<strong>Upozorenje!!</strong>";
+      };
+    </script>
+  </body>
+</html>
