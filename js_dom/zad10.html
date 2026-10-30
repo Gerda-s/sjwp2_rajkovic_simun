@@ -5,5 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-  <body></body>
+  <body>
+    <img src="sdfg.png" alt="slika 1">
+    <button>Gumb</button>
+    <script>
+      let slika=document.querySelector("img");
+      let gumb=document.querySelector("button");
+      gumb.onclick = function(){
+        slika.setAttribute("alt","Slika zaslona");
+        slika.setAttribute("src","skrin6.png");
+      }
+
+    </script>
+  </body>
 </html>

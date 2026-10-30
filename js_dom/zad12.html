@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="prvi">Onemoguci</button>
+    <button id="drugi">Omoguci</button>
+    <button id="treci">Treci gumb</button>
+    <script>
+        let gumb1=document.getElementById("prvi");
+        let gumb2=document.getElementById("drugi");
+        let gumb3=document.getElementById("treci");
+        gumb1.onclick=function(){
+            gumb3.disabled=true;
+        }
+        gumb2.onclick=function(){
+            gumb3.disabled=false;
+        }
+    </script>
+</body>
+</html>

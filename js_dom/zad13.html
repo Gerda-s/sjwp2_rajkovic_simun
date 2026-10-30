@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>0</p>
+    <button>Gumb</button>
+    <script>
+        let gumb=document.querySelector("button");
+        let brojac=document.querySelector("p");
+        let broj=0;
+        gumb.onclick=function(){
+            broj++;
+            brojac.innerHTML=broj;
+            if(broj==10){
+            brojac.style.color="green";
+            }
+        }
+        
+
+    </script>
+</body>
+</html>
