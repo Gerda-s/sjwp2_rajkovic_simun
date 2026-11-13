@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="proizvodi"></div>
+
+    <button id="skupi">Proizvodi skuplji od 50 €</button>
+    <button id="tehnika">Prikaži tehniku</button>
+    <button id="hrana">Prikaži hranu</button>
+    <button id="svi">Prikaži sve</button>
+
+    <p id="nazivi"></p>
+
+    <script>
+
+        // Polje objekata
+        const proizvodi = [
+            { naziv: "Laptop", cijena: 800, kategorija: "tehnika", stanjeZalihe: 5 },
+            { naziv: "Mobitel", cijena: 400, kategorija: "tehnika", stanjeZalihe: 10 },
+            { naziv: "Kruh", cijena: 2, kategorija: "hrana", stanjeZalihe: 20 },
+            { naziv: "Slušalice", cijena: 60, kategorija: "tehnika", stanjeZalihe: 8 },
+            { naziv: "Mlijeko", cijena: 3, kategorija: "hrana", stanjeZalihe: 15 },
+            { naziv: "Monitor", cijena: 150, kategorija: "tehnika", stanjeZalihe: 4 }
+        ];
+        const prikaz = document.getElementById("proizvodi");
+        function prikazi(polje) {
+            prikaz.innerHTML = "";
+
+            polje.forEach(function(proizvod) {
+                prikaz.innerHTML += 
+                    <p>
+                        ${proizvod.naziv} -
+                        ${proizvod.cijena} € -
+                        ${proizvod.kategorija} -
+                        Zaliha: ${proizvod.stanjeZalihe}
+                    </p>
+                ;
+            });
+        }
+        prikazi(proizvodi);
+        document.getElementById("skupi").addEventListener("click", function() {
+            const skupi = proizvodi.filter(function(proizvod) {
+                return proizvod.cijena > 50;
+            });
+            prikazi(skupi);
+        })
+        document.getElementById("tehnika").addEventListener("click", function() {
+            const tehnika = proizvodi.filter(function(proizvod) {
+                return proizvod.kategorija === "tehnika";
+            });
+            prikazi(tehnika);
+        })
+        document.getElementById("hrana").addEventListener("click", function() {
+            const hrana = proizvodi.filter(function(proizvod) {
+                return proizvod.kategorija === "hrana";
+            });
+            prikazi(hrana);
+        })
+        document.getElementById("svi").addEventListener("click", function() {
+            prikazi(proizvodi);
+        })
+        const nazivi = proizvodi.map(function(proizvod) {
+            return proizvod.naziv;
+        })
+        document.getElementById("nazivi").textContent =
+            "Nazivi proizvoda: " + nazivi.join(", ");
+    </script>
+</body>
+</html>

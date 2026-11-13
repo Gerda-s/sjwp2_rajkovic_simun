@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" id="broj1" placeholder="Prvi broj">
+    <input type="number" id="broj2" placeholder="Drugi broj">
+
+    <button id="plus">+</button>
+    <button id="minus">-</button>
+    <button id="puta">*</button>
+    <button id="dijeli">/</button>
+
+    <p id="rezultat"></p>
+
+    <script>
+        function zbroji(a, b) {
+            return a + b;
+        }
+
+        function oduzmi(a, b) {
+            return a - b;
+        }
+
+        function pomnozi(a, b) {
+            return a * b;
+        }
+
+        function podijeli(a, b) {
+            if (b === 0) return "Ne može se dijeliti s nulom!";
+            return a / b;
+        }
+
+        function izvrsi(a, b, callback) {
+            return callback(a, b);
+        }
+
+        const a = document.getElementById("broj1");
+        const b = document.getElementById("broj2");
+        const rezultat = document.getElementById("rezultat");
+
+        function racunaj(callback) {
+            if (a.value === "" || b.value === "") {
+                rezultat.textContent = "Unesi oba broja!";
+                return;
+            }
+
+            rezultat.textContent = izvrsi(Number(a.value), Number(b.value), callback);
+        }
+
+        document.getElementById("plus").addEventListener("click", function() {
+            racunaj(zbroji);
+        });
+
+        document.getElementById("minus").addEventListener("click", function() {
+            racunaj(oduzmi);
+        });
+
+        document.getElementById("puta").addEventListener("click", function() {
+            racunaj(pomnozi);
+        });
+
+        document.getElementById("dijeli").addEventListener("click", function() {
+            racunaj(podijeli);
+        });
+
+    </script>
+</body>
+</html>

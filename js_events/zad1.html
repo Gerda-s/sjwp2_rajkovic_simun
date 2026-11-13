@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button class="b1">+</button>
+    <button class="b2">-</button>
+    <button class="b3">Reset</button>
+    <p>Broj klikova:0</p>
+    <script>
+        let broj =0;
+        let gumb1=document.querySelector(".b1")
+        let gumb2=document.querySelector(".b2");
+        let gumb3=document.querySelector(".b3")
+        let ispis=document.querySelector("p");
+        gumb1.addEventListener("click", function(){
+            broj++;
+            ispis.textContent="Broj klikova: " + broj;
+        })
+        gumb2.addEventListener("click",function(){
+            broj--;
+            ispis.textContent="Broj klikova: " + broj;
+        })
+        gumb3.addEventListener("click",function(){
+            broj=0;
+            ispis.textContent="Broj klikova: " + broj;
+        })
+    </script>
+</body>
+</html>

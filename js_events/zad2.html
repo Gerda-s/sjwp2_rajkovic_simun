@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="unos">
+    <p id="poruka"></p>
+    <p class="tipk">Pritisnuta tipka:</p>
+    <script>
+        let unos=document.querySelector("input");
+        let poruka=document.querySelector("#poruka");
+        let tipka=document.querySelector(".tipk")
+        document.addEventListener("keydown", function(event){
+            if(document.activeElement!==unos){
+                return;
+            }
+            tipka.textContent=event.key;
+            if(event.key=="Enter"){
+                poruka.textContent="Potvrđeno";
+            }
+            if(event.key=="Escape"){
+                unos.value="";
+            }
+        })
+    </script>
+</body>
+</html>
