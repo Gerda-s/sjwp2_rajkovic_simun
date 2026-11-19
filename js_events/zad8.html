@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    body { font-family: Arial; text-align: center; }
+    #povrsina { width: 300px; height: 200px; margin: 20px auto; background: gray; color: white;
+                font-size: 22px; line-height: 200px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div id="povrsina">Klikni "Pokreni"</div>
+    <p id="rezultat"></p>
+    <button id="pokreni">Pokreni</button>
+    <button id="ponovi">Ponovi</button>
+
+<script>
+    const povrsina = document.getElementById("povrsina");
+    const rezultat = document.getElementById("rezultat");
+    const btnPokreni = document.getElementById("pokreni");
+
+    let timer = null;
+    let cekam = false;      // test čeka promjenu boje
+    let zelena = false;     // boja se promijenila
+    let pocetak = 0;
+
+    function pokreni() {
+        if (cekam) {
+            return; // sprječava višestruko pokretanje
+        }
+        cekam = true;
+        zelena = false;
+        btnPokreni.disabled = true;
+        rezultat.textContent = "";
+        povrsina.style.background = "red";
+        povrsina.textContent = "Čekaj...";
+
+        const vrijeme = Math.random() * 4000 + 1000; // 1 do 5 sekundi
+
+        timer = setTimeout(function () {
+            povrsina.style.background = "green";
+            povrsina.textContent = "KLIKNI!";
+            zelena = true;
+            pocetak = Date.now();
+        }, vrijeme);
+    }
+
+    povrsina.addEventListener("click", function () {
+        if (cekam && zelena === false) {
+            clearTimeout(timer);
+            povrsina.style.background = "gray";
+            povrsina.textContent = "Prerano!";
+            cekam = false;
+        } else if (cekam && zelena) {
+            const reakcija = Date.now() - pocetak;
+            povrsina.style.background = "gray";
+            povrsina.textContent = "Gotovo";
+            rezultat.textContent = "Vrijeme reakcije: " + reakcija + " ms";
+            cekam = false;
+        }
+    });
+
+    document.getElementById("ponovi").addEventListener("click", function () {
+        clearTimeout(timer);
+        cekam = false;
+        btnPokreni.disabled = false;
+        pokreni();
+    });
+
+    btnPokreni.addEventListener("click", pokreni);
+</script>
+</body>
+</html>

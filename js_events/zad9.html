@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    body { font-family: Arial; text-align: center; }
+    #prostor { position: relative; width: 400px; height: 400px; margin: 20px auto; border: 3px solid black; }
+    #igrac { position: absolute; width: 40px; height: 40px; }
+</style>
+</head>
+<body>
+    <p>Strelice ili W, A, S, D</p>
+    <div id="prostor">
+        <div id="igrac"></div>
+    </div>
+    <button id="reset">Resetiraj</button>
+
+<script>
+    const kvadrat = document.getElementById("igrac");
+
+    const igrac = {
+        x: 180,
+        y: 180,
+        brzina: 10,
+        boja: "tomato",
+
+        pomakniLijevo() {
+            if (this.x - this.brzina >= 0) {
+                this.x = this.x - this.brzina;
+            }
+        },
+        pomakniDesno() {
+            if (this.x + this.brzina <= 360) {   // 400 - 40
+                this.x = this.x + this.brzina;
+            }
+        },
+        pomakniGore() {
+            if (this.y - this.brzina >= 0) {
+                this.y = this.y - this.brzina;
+            }
+        },
+        pomakniDolje() {
+            if (this.y + this.brzina <= 360) {
+                this.y = this.y + this.brzina;
+            }
+        },
+        resetiraj() {
+            this.x = 180;
+            this.y = 180;
+        }
+    };
+
+    function prikazi() {
+        kvadrat.style.left = igrac.x + "px";
+        kvadrat.style.top = igrac.y + "px";
+        kvadrat.style.background = igrac.boja;
+    }
+
+    document.addEventListener("keydown", function (event) {
+        if (event.key === "ArrowLeft" || event.key === "a") {
+            igrac.pomakniLijevo();
+        } else if (event.key === "ArrowRight" || event.key === "d") {
+            igrac.pomakniDesno();
+        } else if (event.key === "ArrowUp" || event.key === "w") {
+            igrac.pomakniGore();
+        } else if (event.key === "ArrowDown" || event.key === "s") {
+            igrac.pomakniDolje();
+        }
+        prikazi();
+    });
+
+    document.getElementById("reset").addEventListener("click", function () {
+        igrac.resetiraj();
+        prikazi();
+    });
+
+    prikazi();
+</script>
+</body>
+</html>
