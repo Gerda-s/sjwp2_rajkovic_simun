@@ -1,87 +1,107 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-    body { font-family: Arial; text-align: center; }
-    #svjetlo { width: 100px; height: 100px; border-radius: 50%; background: gray; margin: 20px auto; }
+      body {
+        font-family: Arial;
+        text-align: center;
+      }
+      #svjetlo {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background: gray;
+        margin: 20px auto;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div id="svjetlo"></div>
     <p id="stanje"></p>
 
     <button id="crvena">Crvena</button>
     <button id="zuta">Žuta</button>
     <button id="zelena">Zelena</button>
-    <br><br>
+    <br /><br />
     <button id="ukljuci">Uključi</button>
     <button id="iskljuci">Isključi</button>
 
-<script>
-    const semafor = {
+    <script>
+      const semafor = {
         boja: "crvena",
         trajanje: 5,
         ukljucen: false,
 
         promijeniBoju(novaBoja) {
-            // ne dopuštamo promjenu ako je semafor isključen
-            if (this.ukljucen === false) {
-                return;
-            }
-            this.boja = novaBoja;
-            if (novaBoja === "crvena") {
-                this.trajanje = 5;
-            } else if (novaBoja === "zuta") {
-                this.trajanje = 2;
-            } else {
-                this.trajanje = 4;
-            }
+          if (this.ukljucen === false) {
+            return;
+          }
+          this.boja = novaBoja;
+          if (novaBoja === "crvena") {
+            this.trajanje = 5;
+          } else if (novaBoja === "zuta") {
+            this.trajanje = 2;
+          } else {
+            this.trajanje = 4;
+          }
         },
         ukljuci() {
-            this.ukljucen = true;
+          this.ukljucen = true;
         },
         iskljuci() {
-            this.ukljucen = false;
+          this.ukljucen = false;
         },
         prikaziStanje() {
-            const svjetlo = document.getElementById("svjetlo");
-            const stanje = document.getElementById("stanje");
+          const svjetlo = document.getElementById("svjetlo");
+          const stanje = document.getElementById("stanje");
 
-            if (this.ukljucen) {
-                svjetlo.style.background = this.boja === "zuta" ? "gold" : (this.boja === "crvena" ? "red" : "green");
-                stanje.textContent = "Uključen, boja: " + this.boja + ", trajanje: " + this.trajanje + " s";
-            } else {
-                svjetlo.style.background = "gray";
-                stanje.textContent = "Semafor je isključen";
-            }
-        }
-    };
+          if (this.ukljucen) {
+            svjetlo.style.background =
+              this.boja === "zuta"
+                ? "gold"
+                : this.boja === "crvena"
+                  ? "red"
+                  : "green";
+            stanje.textContent =
+              "Uključen, boja: " +
+              this.boja +
+              ", trajanje: " +
+              this.trajanje +
+              " s";
+          } else {
+            svjetlo.style.background = "gray";
+            stanje.textContent = "Semafor je isključen";
+          }
+        },
+      };
 
-    document.getElementById("crvena").addEventListener("click", function () {
+      document.getElementById("crvena").addEventListener("click", function () {
         semafor.promijeniBoju("crvena");
         semafor.prikaziStanje();
-    });
-    document.getElementById("zuta").addEventListener("click", function () {
+      });
+      document.getElementById("zuta").addEventListener("click", function () {
         semafor.promijeniBoju("zuta");
         semafor.prikaziStanje();
-    });
-    document.getElementById("zelena").addEventListener("click", function () {
+      });
+      document.getElementById("zelena").addEventListener("click", function () {
         semafor.promijeniBoju("zelena");
         semafor.prikaziStanje();
-    });
-    document.getElementById("ukljuci").addEventListener("click", function () {
+      });
+      document.getElementById("ukljuci").addEventListener("click", function () {
         semafor.ukljuci();
         semafor.prikaziStanje();
-    });
-    document.getElementById("iskljuci").addEventListener("click", function () {
-        semafor.iskljuci();
-        semafor.prikaziStanje();
-    });
+      });
+      document
+        .getElementById("iskljuci")
+        .addEventListener("click", function () {
+          semafor.iskljuci();
+          semafor.prikaziStanje();
+        });
 
-    semafor.prikaziStanje();
-</script>
-</body>
+      semafor.prikaziStanje();
+    </script>
+  </body>
 </html>
